@@ -63,7 +63,7 @@ exports = module.exports = function(app, mongoose) {
   };
   userSchema.plugin(require('./plugins/pagedFind'));
   userSchema.index({ username: 1 }, { unique: true });
-  userSchema.index({ email: 1 }, { unique: true });
+  userSchema.index({ email: 1 }, { unique: true, sparse: true });
   userSchema.index({ timeCreated: 1 });
   userSchema.index({ 'twitter.id': 1 });
   userSchema.index({ 'github.id': 1 });
